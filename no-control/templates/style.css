@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #111;
+
+    color: white;
+
+    font-family:
+        Arial,
+        sans-serif;
+}
+
+
+.arcade {
+
+    width: min(
+        900px,
+        90%
+    );
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+h1 {
+
+    font-size: 42px;
+
+}
+
+
+.games {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 40px 0;
+
+}
+
+
+.game {
+
+    padding: 25px 10px;
+
+    border: 2px solid white;
+
+    border-radius: 10px;
+
+    font-size: 45px;
+
+}
+
+
+.game span {
+
+    display: block;
+
+    font-size: 14px;
+
+    margin-top: 10px;
+
+}
+
+
+.connect {
+
+    margin-top: 30px;
+
+    padding: 20px;
+
+    border: 1px solid #555;
+
+    border-radius: 10px;
+
+}
+
+
+input {
+
+    width: 100%;
+
+    max-width: 350px;
+
+    padding: 15px;
+
+    font-size: 18px;
+
+}
+
+
+button {
+
+    padding: 18px 25px;
+
+    margin: 8px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    border: none;
+
+    border-radius: 10px;
+
+}
+
+
+.controller {
+
+    margin-top: 30px;
+
+}
+
+
+.controller button {
+
+    min-width: 80px;
+
+    min-height: 70px;
+
+}

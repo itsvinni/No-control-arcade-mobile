@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Science Arcade</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+<body>
+
+    <main class="arcade">
+
+        <h1>🎮 SCIENCE ARCADE</h1>
+
+        <div id="login">
+
+            <h2>👋 Bem-vindo!</h2>
+
+            <p>
+                Qual é o seu nome?
+            </p>
+
+            <input
+                id="name"
+                type="text"
+                placeholder="Digite seu nome"
+                maxlength="20"
+            >
+
+            <br><br>
+
+            <button onclick="login()">
+                CONTINUAR
+            </button>
+
+        </div>
+
+
+        <div id="welcome" style="display: none;">
+
+            <h2 id="welcomeText"></h2>
+
+            <button onclick="goToController()">
+                🎮 JOGAR
+            </button>
+
+            <br><br>
+
+            <button onclick="changeName()">
+                TROCAR NOME
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        // =========================
+        // VERIFICAR JOGADOR
+        // =========================
+
+        window.onload = function() {
+
+            const name =
+                localStorage.getItem("playerName");
+
+            const id =
+                localStorage.getItem("playerId");
+
+
+            if (name && id) {
+
+                showWelcome(name);
+
+            }
+
+        };
+
+
+        // =========================
+        // LOGIN
+        // =========================
+
+        function login() {
+
+            const input =
+                document.getElementById("name");
+
+            const name =
+                input.value.trim();
+
+
+            if (!name) {
+
+                alert(
+                    "Digite seu nome!"
+                );
+
+                return;
+
+            }
+
+
+            let playerId =
+                localStorage.getItem(
+                    "playerId"
+                );
+
+
+            // Primeiro acesso
+            if (!playerId) {
+
+                playerId =
+                    crypto.randomUUID();
+
+                localStorage.setItem(
+                    "playerId",
+                    playerId
+                );
+
+            }
+
+
+            localStorage.setItem(
+                "playerName",
+                name
+            );
+
+
+            showWelcome(name);
+
+        }
+
+
+        // =========================
+        // TELA DE BOAS-VINDAS
+        // =========================
+
+        function showWelcome(name) {
+
+            document
+                .getElementById("login")
+                .style.display = "none";
+
+
+            document
+                .getElementById("welcome")
+                .style.display = "block";
+
+
+            document
+                .getElementById("welcomeText")
+                .textContent =
+                    "👋 Olá, " + name + "!";
+
+        }
+
+
+        // =========================
+        // TROCAR NOME
+        // =========================
+
+        function changeName() {
+
+            localStorage.removeItem(
+                "playerName"
+            );
+
+            document
+                .getElementById("login")
+                .style.display = "block";
+
+
+            document
+                .getElementById("welcome")
+                .style.display = "none";
+
+        }
+
+
+        // =========================
+        // IR PARA CONTROLE
+        // =========================
+
+        function goToController() {
+
+            window.location.href =
+                "/controller";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

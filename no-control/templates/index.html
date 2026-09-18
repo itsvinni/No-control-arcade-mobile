@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Science Arcade</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <main class="home">
+
+        <h1>SCIENCE ARCADE</h1>
+
+        <h2>Escaneie para jogar</h2>
+
+        <!-- QR CODE -->
+
+        <img
+            class="qr"
+            src="{{ url_for('qr') }}"
+            alt="QR Code para entrar no Science Arcade"
+        >
+
+        <p>
+            Aponte a câmera do celular para o QR Code.
+        </p>
+
+        <p>
+            📱 Celular e computador precisam estar
+            na mesma rede Wi-Fi.
+        </p>
+
+        <p class="ip">
+
+            Endereço do celular:
+
+            <strong>
+                http://{{ local_ip }}:5000/login
+            </strong>
+
+        </p>
+
+    </main>
+
+</body>
+
+</html>
+
